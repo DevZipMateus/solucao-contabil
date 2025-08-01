@@ -75,35 +75,10 @@ const Hero = () => {
             </div>
           </div>
           
-          {/* Visual Element - Reorganized */}
+          {/* Visual Element - Updated */}
           <div className="relative animate-fade-in-right" style={{ animationDelay: '0.3s' }}>
             <div className="space-y-8">
-              {/* Professional Accounting Image */}
-              <div className="relative">
-                <div className="relative rounded-3xl overflow-hidden shadow-brand-lg">
-                  <img 
-                    src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=350&fit=crop&crop=center"
-                    alt="Profissional trabalhando com contabilidade e documentos financeiros"
-                    className="w-full h-64 lg:h-72 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent"></div>
-                </div>
-                
-                {/* Floating badge - repositioned */}
-                <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-4 shadow-brand animate-float z-10">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
-                      <FileCheck size={20} className="text-primary" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold text-foreground">100% Digital</div>
-                      <div className="text-xs text-muted-foreground">Processos online</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Service Cards with background image */}
+              {/* Service Cards with background image and new title */}
               <div 
                 className="relative rounded-3xl p-6 lg:p-8 shadow-brand-lg overflow-hidden"
                 style={{
@@ -116,23 +91,32 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-primary/80 backdrop-blur-sm"></div>
                 
                 {/* Content over background */}
-                <div className="relative z-10 grid grid-cols-2 gap-4">
-                  <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 animate-float shadow-lg">
-                    <TrendingUp size={28} className="text-primary mb-3" />
-                    <h3 className="text-primary font-semibold text-sm mb-1">Crescimento</h3>
-                    <p className="text-muted-foreground text-xs">Aumente sua lucratividade</p>
+                <div className="relative z-10 space-y-6">
+                  {/* New title */}
+                  <div className="text-center">
+                    <h2 className="text-2xl lg:text-3xl font-bold text-white mb-2">100% Digital</h2>
+                    <p className="text-white/90 text-sm">Transformação digital completa para sua contabilidade</p>
                   </div>
                   
-                  <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 animate-float shadow-lg" style={{ animationDelay: '1s' }}>
-                    <FileCheck size={28} className="text-primary mb-3" />
-                    <h3 className="text-primary font-semibold text-sm mb-1">Conformidade</h3>
-                    <p className="text-muted-foreground text-xs">100% em dia com o fisco</p>
-                  </div>
-                  
-                  <div className="col-span-2 bg-white/95 backdrop-blur-sm rounded-2xl p-4 animate-float shadow-lg" style={{ animationDelay: '2s' }}>
-                    <Shield size={28} className="text-primary mb-3" />
-                    <h3 className="text-primary font-semibold text-sm mb-1">Segurança Total</h3>
-                    <p className="text-muted-foreground text-xs">Seus dados protegidos com certificação digital</p>
+                  {/* Service cards grid */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 animate-float shadow-lg">
+                      <TrendingUp size={28} className="text-primary mb-3" />
+                      <h3 className="text-primary font-semibold text-sm mb-1">Crescimento</h3>
+                      <p className="text-muted-foreground text-xs">Aumente sua lucratividade</p>
+                    </div>
+                    
+                    <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 animate-float shadow-lg" style={{ animationDelay: '1s' }}>
+                      <FileCheck size={28} className="text-primary mb-3" />
+                      <h3 className="text-primary font-semibold text-sm mb-1">Conformidade</h3>
+                      <p className="text-muted-foreground text-xs">100% em dia com o fisco</p>
+                    </div>
+                    
+                    <div className="col-span-2 bg-white/95 backdrop-blur-sm rounded-2xl p-4 animate-float shadow-lg" style={{ animationDelay: '2s' }}>
+                      <Shield size={28} className="text-primary mb-3" />
+                      <h3 className="text-primary font-semibold text-sm mb-1">Segurança Total</h3>
+                      <p className="text-muted-foreground text-xs">Seus dados protegidos com certificação digital</p>
+                    </div>
                   </div>
                 </div>
               </div>
