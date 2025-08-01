@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Phone, Mail, MapPin, Clock, Instagram, Globe } from 'lucide-react';
 
@@ -68,7 +69,9 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin size={16} className="mt-1 flex-shrink-0 opacity-80" />
                 <span>
-                  Dourados - MS
+                  Rua Hiran Pereira de Matos, 1795<br />
+                  Vila Alba - Dourados, MS<br />
+                  CEP: 79830-240
                 </span>
               </div>
             </div>

@@ -28,7 +28,7 @@ const Location = () => {
             <div className="bg-white rounded-2xl p-4 shadow-brand">
               <div className="relative w-full h-96 rounded-xl overflow-hidden">
                 <iframe 
-                  src="https://maps.google.com/maps?q=Dourados,+MS&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                  src="https://maps.google.com/maps?q=Rua+Hiran+Pereira+de+Matos,+1795,+Vila+Alba,+Dourados,+MS&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }}
@@ -56,10 +56,12 @@ const Location = () => {
                       Endereço
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Dourados - MS
+                      Rua Hiran Pereira de Matos, 1795<br />
+                      Vila Alba - Dourados, MS<br />
+                      CEP: 79830-240
                     </p>
                     <a 
-                      href="https://maps.app.goo.gl/dourados"
+                      href="https://maps.app.goo.gl/ZLGENgvjU1HV96TF7"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center text-primary hover:text-primary/80 font-medium text-sm mt-2 transition-colors"
