@@ -28,7 +28,7 @@ const Location = () => {
             <div className="bg-white rounded-2xl p-4 shadow-brand">
               <div className="relative w-full h-96 rounded-xl overflow-hidden">
                 <iframe 
-                  src="https://maps.google.com/maps?q=Rua+Hiran+Pereira+de+Matos,+1795+-+Vila+Alba&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  src="https://maps.google.com/maps?q=Dourados,+MS&t=&z=13&ie=UTF8&iwloc=&output=embed"
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }}
@@ -56,12 +56,10 @@ const Location = () => {
                       Endereço
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Rua Hiran Pereira de Matos, 1795<br />
-                      Vila Alba<br />
-                      Campo Grande - MS
+                      Dourados - MS
                     </p>
                     <a 
-                      href="https://maps.app.goo.gl/rJtHrrA7DVURLmL96"
+                      href="https://maps.app.goo.gl/dourados"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center text-primary hover:text-primary/80 font-medium text-sm mt-2 transition-colors"
@@ -85,11 +83,11 @@ const Location = () => {
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
                         <span className="text-muted-foreground">Segunda - Sexta:</span>
-                        <span className="text-foreground font-medium">08:00 - 18:00</span>
+                        <span className="text-foreground font-medium">08:00 - 17:00</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-muted-foreground">Sábado:</span>
-                        <span className="text-foreground font-medium">08:00 - 12:00</span>
+                        <span className="text-muted-foreground">Fechado</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-muted-foreground">Domingo:</span>
