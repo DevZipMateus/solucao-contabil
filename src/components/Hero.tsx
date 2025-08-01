@@ -21,7 +21,7 @@ const Hero = () => {
       </div>
 
       <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div className="text-center lg:text-left">
             <div className="animate-fade-in-up">
@@ -75,61 +75,61 @@ const Hero = () => {
             </div>
           </div>
           
-          {/* Visual Element with Image */}
+          {/* Visual Element - Reorganized */}
           <div className="relative animate-fade-in-right" style={{ animationDelay: '0.3s' }}>
-            <div className="relative">
+            <div className="space-y-8">
               {/* Professional Accounting Image */}
-              <div className="relative mb-8">
+              <div className="relative">
                 <div className="relative rounded-3xl overflow-hidden shadow-brand-lg">
                   <img 
-                    src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop&crop=center"
+                    src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=350&fit=crop&crop=center"
                     alt="Profissional trabalhando com contabilidade e documentos financeiros"
-                    className="w-full h-80 object-cover"
+                    className="w-full h-64 lg:h-72 object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent"></div>
                 </div>
                 
-                {/* Floating badge */}
-                <div className="absolute -bottom-4 left-6 bg-white rounded-2xl p-4 shadow-brand animate-float">
+                {/* Floating badge - repositioned */}
+                <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-4 shadow-brand animate-float z-10">
                   <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                      <FileCheck size={24} className="text-primary" />
+                    <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
+                      <FileCheck size={20} className="text-primary" />
                     </div>
                     <div>
-                      <div className="font-semibold text-foreground">100% Digital</div>
-                      <div className="text-sm text-muted-foreground">Processos online</div>
+                      <div className="text-sm font-semibold text-foreground">100% Digital</div>
+                      <div className="text-xs text-muted-foreground">Processos online</div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Service Cards */}
-              <div className="bg-gradient-primary rounded-3xl p-8 lg:p-12 shadow-brand-lg">
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 animate-float">
-                    <TrendingUp size={32} className="text-white mb-4" />
-                    <h3 className="text-white font-semibold mb-2">Crescimento</h3>
-                    <p className="text-white/80 text-sm">Aumente sua lucratividade</p>
+              {/* Service Cards - separated with proper spacing */}
+              <div className="bg-gradient-primary rounded-3xl p-6 lg:p-8 shadow-brand-lg">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 animate-float">
+                    <TrendingUp size={28} className="text-white mb-3" />
+                    <h3 className="text-white font-semibold text-sm mb-1">Crescimento</h3>
+                    <p className="text-white/80 text-xs">Aumente sua lucratividade</p>
                   </div>
                   
-                  <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 animate-float" style={{ animationDelay: '1s' }}>
-                    <FileCheck size={32} className="text-white mb-4" />
-                    <h3 className="text-white font-semibold mb-2">Conformidade</h3>
-                    <p className="text-white/80 text-sm">100% em dia com o fisco</p>
+                  <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 animate-float" style={{ animationDelay: '1s' }}>
+                    <FileCheck size={28} className="text-white mb-3" />
+                    <h3 className="text-white font-semibold text-sm mb-1">Conformidade</h3>
+                    <p className="text-white/80 text-xs">100% em dia com o fisco</p>
                   </div>
                   
-                  <div className="col-span-2 bg-white/20 backdrop-blur-sm rounded-2xl p-6 animate-float" style={{ animationDelay: '2s' }}>
-                    <Shield size={32} className="text-white mb-4" />
-                    <h3 className="text-white font-semibold mb-2">Segurança Total</h3>
-                    <p className="text-white/80 text-sm">Seus dados protegidos com certificação digital</p>
+                  <div className="col-span-2 bg-white/20 backdrop-blur-sm rounded-2xl p-4 animate-float" style={{ animationDelay: '2s' }}>
+                    <Shield size={28} className="text-white mb-3" />
+                    <h3 className="text-white font-semibold text-sm mb-1">Segurança Total</h3>
+                    <p className="text-white/80 text-xs">Seus dados protegidos com certificação digital</p>
                   </div>
                 </div>
               </div>
-              
-              {/* Floating elements */}
-              <div className="absolute -top-6 -right-6 w-20 h-20 bg-primary/20 rounded-full animate-pulse"></div>
-              <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-accent/20 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
             </div>
+            
+            {/* Floating decorative elements - repositioned */}
+            <div className="absolute -top-4 -right-4 w-16 h-16 bg-primary/20 rounded-full animate-pulse"></div>
+            <div className="absolute top-1/2 -left-4 w-12 h-12 bg-accent/20 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
           </div>
         </div>
       </div>
