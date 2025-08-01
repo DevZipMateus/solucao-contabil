@@ -103,22 +103,33 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* Service Cards - separated with proper spacing */}
-              <div className="bg-gradient-primary rounded-3xl p-6 lg:p-8 shadow-brand-lg">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 animate-float">
+              {/* Service Cards with background image */}
+              <div 
+                className="relative rounded-3xl p-6 lg:p-8 shadow-brand-lg overflow-hidden"
+                style={{
+                  backgroundImage: "url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=350&fit=crop&crop=center')",
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              >
+                {/* Overlay for better text readability */}
+                <div className="absolute inset-0 bg-primary/80 backdrop-blur-sm"></div>
+                
+                {/* Content over background */}
+                <div className="relative z-10 grid grid-cols-2 gap-4">
+                  <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 animate-float shadow-lg">
                     <TrendingUp size={28} className="text-primary mb-3" />
                     <h3 className="text-primary font-semibold text-sm mb-1">Crescimento</h3>
                     <p className="text-muted-foreground text-xs">Aumente sua lucratividade</p>
                   </div>
                   
-                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 animate-float" style={{ animationDelay: '1s' }}>
+                  <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 animate-float shadow-lg" style={{ animationDelay: '1s' }}>
                     <FileCheck size={28} className="text-primary mb-3" />
                     <h3 className="text-primary font-semibold text-sm mb-1">Conformidade</h3>
                     <p className="text-muted-foreground text-xs">100% em dia com o fisco</p>
                   </div>
                   
-                  <div className="col-span-2 bg-white/90 backdrop-blur-sm rounded-2xl p-4 animate-float" style={{ animationDelay: '2s' }}>
+                  <div className="col-span-2 bg-white/95 backdrop-blur-sm rounded-2xl p-4 animate-float shadow-lg" style={{ animationDelay: '2s' }}>
                     <Shield size={28} className="text-primary mb-3" />
                     <h3 className="text-primary font-semibold text-sm mb-1">Segurança Total</h3>
                     <p className="text-muted-foreground text-xs">Seus dados protegidos com certificação digital</p>
