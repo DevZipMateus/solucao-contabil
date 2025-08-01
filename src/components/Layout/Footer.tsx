@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Phone, Mail, MapPin, Clock, Instagram, Globe } from 'lucide-react';
 
@@ -69,8 +68,7 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin size={16} className="mt-1 flex-shrink-0 opacity-80" />
                 <span>
-                  Rua Hiran Pereira de Matos, 1795<br />
-                  Vila Alba - Campo Grande, MS
+                  Dourados - MS
                 </span>
               </div>
             </div>
@@ -82,11 +80,11 @@ const Footer = () => {
             <div className="space-y-2 text-sm">
               <div className="flex items-center space-x-2">
                 <Clock size={16} className="opacity-80" />
-                <span>Segunda - Sexta: 08:00 - 18:00</span>
+                <span>Segunda - Sexta: 08:00 - 17:00</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Clock size={16} className="opacity-80" />
-                <span>Sábado: 08:00 - 12:00</span>
+                <span>Sábado: Fechado</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Clock size={16} className="opacity-80" />
