@@ -74,7 +74,7 @@ const About = () => {
               Nossa Missão
             </h3>
             
-            <p className="text-white/90 text-lg leading-relaxed">
+            <p className="text-white text-lg leading-relaxed">
               Fornecer soluções contábeis inovadoras e eficientes, utilizando tecnologia 
               de ponta para simplificar a gestão financeira das empresas, permitindo que 
               nossos clientes foquem no que fazem de melhor: crescer seus negócios.
