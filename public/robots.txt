@@ -5,4 +5,4 @@ Disallow: /admin/
 Disallow: /login/
 Disallow: /private/
 
-Sitemap: https://solucaocontabilonline.cnt.br/sitemap.xml
+Sitemap: https://solucaocontabilbr.com.br/sitemap.xml
