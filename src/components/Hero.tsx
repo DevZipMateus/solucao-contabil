@@ -75,10 +75,35 @@ const Hero = () => {
             </div>
           </div>
           
-          {/* Visual Element */}
+          {/* Visual Element with Image */}
           <div className="relative animate-fade-in-right" style={{ animationDelay: '0.3s' }}>
             <div className="relative">
-              {/* Main illustration */}
+              {/* Professional Accounting Image */}
+              <div className="relative mb-8">
+                <div className="relative rounded-3xl overflow-hidden shadow-brand-lg">
+                  <img 
+                    src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop&crop=center"
+                    alt="Profissional trabalhando com contabilidade e documentos financeiros"
+                    className="w-full h-80 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent"></div>
+                </div>
+                
+                {/* Floating badge */}
+                <div className="absolute -bottom-4 left-6 bg-white rounded-2xl p-4 shadow-brand animate-float">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                      <FileCheck size={24} className="text-primary" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-foreground">100% Digital</div>
+                      <div className="text-sm text-muted-foreground">Processos online</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Service Cards */}
               <div className="bg-gradient-primary rounded-3xl p-8 lg:p-12 shadow-brand-lg">
                 <div className="grid grid-cols-2 gap-6">
                   <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 animate-float">
@@ -103,7 +128,7 @@ const Hero = () => {
               
               {/* Floating elements */}
               <div className="absolute -top-6 -right-6 w-20 h-20 bg-primary/20 rounded-full animate-pulse"></div>
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-accent/20 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+              <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-accent/20 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
             </div>
           </div>
         </div>
