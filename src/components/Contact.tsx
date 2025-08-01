@@ -182,10 +182,10 @@ const Contact = () => {
               <div className="md:col-span-2 text-center">
                 <button
                   type="submit"
-                  className="btn-primary group inline-flex items-center"
+                  className="btn-primary group inline-flex items-center justify-center"
                 >
-                  <Send size={20} className="mr-2 group-hover:translate-x-1 transition-transform" />
-                  Solicitar Consultoria Gratuita
+                  <span>Solicitar Consultoria Gratuita</span>
+                  <Send size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </button>
                 
                 <p className="text-xs text-muted-foreground mt-4">

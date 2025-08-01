@@ -43,9 +43,9 @@ const Hero = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <button
                   onClick={() => scrollToSection('contato')}
-                  className="btn-primary group"
+                  className="btn-primary group inline-flex items-center justify-center"
                 >
-                  Solicitar Consultoria
+                  <span>Solicitar Consultoria</span>
                   <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </button>
                 

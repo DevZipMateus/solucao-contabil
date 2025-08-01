@@ -111,10 +111,10 @@ const Services = () => {
               {/* CTA */}
               <button 
                 onClick={() => scrollToSection('contato')}
-                className="inline-flex items-center text-primary hover:text-primary/80 font-medium text-sm group-hover:translate-x-1 transition-transform"
+                className="inline-flex items-center justify-between w-full text-primary hover:text-primary/80 font-medium text-sm group-hover:translate-x-1 transition-transform"
               >
-                Solicitar orçamento
-                <ArrowRight size={16} className="ml-1" />
+                <span>Solicitar orçamento</span>
+                <ArrowRight size={16} />
               </button>
             </div>
           ))}
@@ -135,9 +135,9 @@ const Services = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => scrollToSection('contato')}
-                className="btn-primary group"
+                className="btn-primary group inline-flex items-center justify-center"
               >
-                Falar com Especialista
+                <span>Falar com Especialista</span>
                 <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </button>
               
@@ -145,9 +145,9 @@ const Services = () => {
                 href="https://api.whatsapp.com/send?phone=5567999369264&text=Olá! Gostaria de saber mais sobre os serviços contábeis."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-outline group"
+                className="btn-outline group inline-flex items-center justify-center"
               >
-                WhatsApp
+                <span>WhatsApp</span>
                 <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
