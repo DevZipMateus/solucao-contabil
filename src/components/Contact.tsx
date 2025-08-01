@@ -1,8 +1,17 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Phone, Mail, MessageCircle, Clock, MapPin, Send } from 'lucide-react';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    service: '',
+    message: ''
+  });
+
   const contactMethods = [
     {
       icon: Phone,
@@ -29,6 +38,57 @@ const Contact = () => {
       color: 'from-blue-500 to-blue-600'
     }
   ];
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Create WhatsApp message with form data
+    let message = "📝 *Solicitação de Consultoria Gratuita*\n\n";
+    
+    if (formData.name) message += `👤 *Nome:* ${formData.name}\n`;
+    if (formData.email) message += `📧 *E-mail:* ${formData.email}\n`;
+    if (formData.phone) message += `📱 *Telefone:* ${formData.phone}\n`;
+    if (formData.company) message += `🏢 *Empresa:* ${formData.company}\n`;
+    if (formData.service) {
+      const serviceLabels: { [key: string]: string } = {
+        'contabilidade-completa': 'Contabilidade Completa',
+        'planejamento-tributario': 'Planejamento Tributário',
+        'abertura-empresa': 'Abertura de Empresa',
+        'certificado-digital': 'Certificado Digital',
+        'erp': 'Sistema de Gestão (ERP)',
+        'consultoria': 'Consultoria Especializada'
+      };
+      message += `🎯 *Serviço de Interesse:* ${serviceLabels[formData.service] || formData.service}\n`;
+    }
+    if (formData.message) message += `💬 *Mensagem:* ${formData.message}\n`;
+    
+    message += "\n_Mensagem enviada através do site_";
+    
+    // Encode message and create WhatsApp URL
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=5567999369264&text=${encodedMessage}`;
+    
+    // Open WhatsApp
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      company: '',
+      service: '',
+      message: ''
+    });
+  };
 
   return (
     <section id="contato" className="section-padding bg-background">
@@ -91,7 +151,7 @@ const Contact = () => {
               </p>
             </div>
 
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                   Nome Completo *
@@ -100,6 +160,8 @@ const Contact = () => {
                   type="text"
                   id="name"
                   name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 rounded-xl border border-border bg-white focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
                   placeholder="Seu nome completo"
@@ -114,6 +176,8 @@ const Contact = () => {
                   type="email"
                   id="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 rounded-xl border border-border bg-white focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
                   placeholder="seu@email.com"
@@ -128,6 +192,8 @@ const Contact = () => {
                   type="tel"
                   id="phone"
                   name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 rounded-xl border border-border bg-white focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
                   placeholder="(67) 99999-9999"
@@ -142,6 +208,8 @@ const Contact = () => {
                   type="text"
                   id="company"
                   name="company"
+                  value={formData.company}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 rounded-xl border border-border bg-white focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
                   placeholder="Nome da empresa"
                 />
@@ -154,6 +222,8 @@ const Contact = () => {
                 <select
                   id="service"
                   name="service"
+                  value={formData.service}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 rounded-xl border border-border bg-white focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
                 >
                   <option value="">Selecione um serviço</option>
@@ -173,6 +243,8 @@ const Contact = () => {
                 <textarea
                   id="message"
                   name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   rows={4}
                   className="w-full px-4 py-3 rounded-xl border border-border bg-white focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors resize-none"
                   placeholder="Descreva suas necessidades ou dúvidas..."
