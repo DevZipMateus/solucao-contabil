@@ -106,22 +106,22 @@ const Hero = () => {
               {/* Service Cards - separated with proper spacing */}
               <div className="bg-gradient-primary rounded-3xl p-6 lg:p-8 shadow-brand-lg">
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 animate-float">
-                    <TrendingUp size={28} className="text-white mb-3" />
-                    <h3 className="text-white font-semibold text-sm mb-1">Crescimento</h3>
-                    <p className="text-white/80 text-xs">Aumente sua lucratividade</p>
+                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 animate-float">
+                    <TrendingUp size={28} className="text-primary mb-3" />
+                    <h3 className="text-primary font-semibold text-sm mb-1">Crescimento</h3>
+                    <p className="text-muted-foreground text-xs">Aumente sua lucratividade</p>
                   </div>
                   
-                  <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 animate-float" style={{ animationDelay: '1s' }}>
-                    <FileCheck size={28} className="text-white mb-3" />
-                    <h3 className="text-white font-semibold text-sm mb-1">Conformidade</h3>
-                    <p className="text-white/80 text-xs">100% em dia com o fisco</p>
+                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 animate-float" style={{ animationDelay: '1s' }}>
+                    <FileCheck size={28} className="text-primary mb-3" />
+                    <h3 className="text-primary font-semibold text-sm mb-1">Conformidade</h3>
+                    <p className="text-muted-foreground text-xs">100% em dia com o fisco</p>
                   </div>
                   
-                  <div className="col-span-2 bg-white/20 backdrop-blur-sm rounded-2xl p-4 animate-float" style={{ animationDelay: '2s' }}>
-                    <Shield size={28} className="text-white mb-3" />
-                    <h3 className="text-white font-semibold text-sm mb-1">Segurança Total</h3>
-                    <p className="text-white/80 text-xs">Seus dados protegidos com certificação digital</p>
+                  <div className="col-span-2 bg-white/90 backdrop-blur-sm rounded-2xl p-4 animate-float" style={{ animationDelay: '2s' }}>
+                    <Shield size={28} className="text-primary mb-3" />
+                    <h3 className="text-primary font-semibold text-sm mb-1">Segurança Total</h3>
+                    <p className="text-muted-foreground text-xs">Seus dados protegidos com certificação digital</p>
                   </div>
                 </div>
               </div>
