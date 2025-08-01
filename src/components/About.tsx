@@ -68,13 +68,13 @@ const About = () => {
         </div>
         
         {/* Mission Statement */}
-        <div className="mt-16 bg-gradient-primary rounded-3xl p-8 lg:p-12 text-center">
+        <div className="mt-16 bg-white rounded-3xl p-8 lg:p-12 text-center border border-border shadow-lg">
           <div className="max-w-4xl mx-auto">
-            <h3 className="text-2xl lg:text-3xl font-bold text-white mb-6 font-heading">
+            <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-6 font-heading">
               Nossa Missão
             </h3>
             
-            <p className="text-white text-lg leading-relaxed">
+            <p className="text-muted-foreground text-lg leading-relaxed">
               Fornecer soluções contábeis inovadoras e eficientes, utilizando tecnologia 
               de ponta para simplificar a gestão financeira das empresas, permitindo que 
               nossos clientes foquem no que fazem de melhor: crescer seus negócios.
