@@ -5,6 +5,7 @@ import Footer from '../components/Layout/Footer';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Services from '../components/Services';
+import EgestorERP from '../components/EgestorERP';
 import Location from '../components/Location';
 import Contact from '../components/Contact';
 import FloatingWhatsApp from '../components/FloatingWhatsApp';
@@ -23,6 +24,7 @@ const Index = () => {
         <Hero />
         <About />
         <Services />
+        <EgestorERP />
         <Location />
         <Contact />
       </main>
