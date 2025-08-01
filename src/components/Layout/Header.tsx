@@ -1,12 +1,21 @@
 
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Mail, Phone, Menu, X } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
 import { useIsMobile } from '../../hooks/use-mobile';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const isMobile = useIsMobile();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -16,7 +25,8 @@ const Header = () => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({
-        behavior: 'smooth'
+        behavior: 'smooth',
+        block: 'start'
       });
     }
     if (isMobileMenuOpen) {
@@ -24,148 +34,104 @@ const Header = () => {
     }
   };
 
+  const navigationItems = [
+    { label: 'Início', id: 'inicio' },
+    { label: 'Sobre', id: 'sobre' },
+    { label: 'Serviços', id: 'servicos' },
+    { label: 'Localização', id: 'localizacao' },
+    { label: 'Contato', id: 'contato' }
+  ];
+
   return (
     <>
-      {/* Top Bar - Now scrolls with the page */}
-      <div className="bg-ds3-dark text-white py-1 sm:py-2">
-        <div className="container-custom flex justify-end items-center gap-2 sm:gap-6">
-          <a href="mailto:vendas@safeguardepis.com.br" className="flex items-center text-xs sm:text-sm hover:text-ds3-gold transition-colors">
-            <Mail size={14} className="mr-1 sm:mr-2" />
-            <span className="hidden sm:inline">vendas@safeguardepis.com.br</span>
-            <span className="sm:hidden">Email</span>
-          </a>
-        </div>
-      </div>
-      
-      {/* Main Header - Making it fully transparent and positioned lower */}
-      <header className="absolute w-full bg-transparent z-10 top-6 sm:top-10">
-        <div className="container-custom py-2 sm:py-4">
-          <div className="flex justify-between items-center">
+      <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-border' 
+          : 'bg-transparent'
+      }`}>
+        <div className="container-custom">
+          <div className="flex justify-between items-center h-16 lg:h-20">
             {/* Logo */}
-            <Link to="/" className="text-xl sm:text-2xl font-semibold transition-all duration-300 transform hover:scale-[1.02]">
-              <div className="flex items-center">
-                <div className="bg-ds3-gold text-ds3-dark px-3 py-2 rounded-lg font-bold text-lg sm:text-xl">
-                  SAFEGUARD EPIs
+            <div 
+              className="flex items-center cursor-pointer"
+              onClick={() => scrollToSection('inicio')}
+            >
+              <img 
+                src="/lovable-uploads/4f7aa27f-f26d-4dc2-815c-fa001c2ed332.png" 
+                alt="Solução Contábil Online - Logo"
+                className="h-10 lg:h-12 w-auto"
+              />
+              {!isMobile && (
+                <div className="ml-3">
+                  <h1 className="text-xl lg:text-2xl font-bold text-foreground leading-tight">
+                    Solução Contábil
+                  </h1>
+                  <p className="text-xs text-muted-foreground -mt-1">Online</p>
                 </div>
-              </div>
-            </Link>
+              )}
+            </div>
             
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6">
-              <a href="#about" onClick={e => {
-                e.preventDefault();
-                scrollToSection('about');
-              }} className="nav-link text-white hover:text-ds3-gold cursor-pointer text-sm xl:text-base">
-                Sobre Nós
-              </a>
-              <a href="#services" onClick={e => {
-                e.preventDefault();
-                scrollToSection('services');
-              }} className="nav-link text-white hover:text-ds3-gold cursor-pointer text-sm xl:text-base">
-                Produtos
-              </a>
-              <a href="#technology" onClick={e => {
-                e.preventDefault();
-                scrollToSection('technology');
-              }} className="nav-link text-white hover:text-ds3-gold cursor-pointer text-sm xl:text-base">
-                Qualidade
-              </a>
-              <a href="#clients" onClick={e => {
-                e.preventDefault();
-                scrollToSection('clients');
-              }} className="nav-link text-white hover:text-ds3-gold cursor-pointer text-sm xl:text-base">
-                Clientes
-              </a>
-              <a href="#contact" onClick={e => {
-                e.preventDefault();
-                scrollToSection('contact');
-              }} className="nav-link text-white hover:text-ds3-gold cursor-pointer text-sm xl:text-base">
-                Contato
-              </a>
+            <nav className="hidden lg:flex items-center space-x-8">
+              {navigationItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="nav-link text-sm font-medium"
+                >
+                  {item.label}
+                </button>
+              ))}
               
-              <a href="#contact" onClick={e => {
-                e.preventDefault();
-                scrollToSection('contact');
-              }} className="ml-2 xl:ml-4 bg-ds3-gold hover:bg-ds3-gold/90 text-ds3-dark px-4 xl:px-6 py-2 rounded font-medium transition-all text-sm xl:text-base">
-                SOLICITAR ORÇAMENTO
-              </a>
+              <button
+                onClick={() => scrollToSection('contato')}
+                className="btn-primary text-sm"
+              >
+                Fale Conosco
+              </button>
             </nav>
             
             {/* Mobile Menu Button */}
-            <button className="lg:hidden text-white hover:text-ds3-gold focus:outline-none p-2" onClick={toggleMobileMenu}>
-              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            <button 
+              className="lg:hidden p-2 rounded-lg hover:bg-secondary transition-colors"
+              onClick={toggleMobileMenu}
+              aria-label="Abrir menu de navegação"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
       </header>
       
       {/* Mobile Navigation Menu */}
-      <div className={`fixed top-0 left-0 w-full h-full bg-ds3-dark z-50 transform transition-transform duration-300 ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-        <div className="container-custom py-4 h-full flex flex-col">
-          <div className="flex justify-between items-center mb-8 pt-4">
-            <Link to="/" className="text-xl font-semibold" onClick={() => setIsMobileMenuOpen(false)}>
-              <div className="bg-ds3-gold text-ds3-dark px-3 py-2 rounded-lg font-bold">
-                SAFEGUARD EPIs
-              </div>
-            </Link>
-            <button className="text-white hover:text-ds3-gold focus:outline-none p-2" onClick={toggleMobileMenu}>
-              <X size={20} />
-            </button>
-          </div>
-          
-          <div className="flex flex-col space-y-6 text-base sm:text-lg">
-            <a href="#about" onClick={e => {
-              e.preventDefault();
-              scrollToSection('about');
-            }} className="text-white hover:text-ds3-gold cursor-pointer py-2">
-              Sobre Nós
-            </a>
-            <a href="#services" onClick={e => {
-              e.preventDefault();
-              scrollToSection('services');
-            }} className="text-white hover:text-ds3-gold cursor-pointer py-2">
-              Produtos
-            </a>
-            <a href="#technology" onClick={e => {
-              e.preventDefault();
-              scrollToSection('technology');
-            }} className="text-white hover:text-ds3-gold cursor-pointer py-2">
-              Qualidade
-            </a>
-            <a href="#clients" onClick={e => {
-              e.preventDefault();
-              scrollToSection('clients');
-            }} className="text-white hover:text-ds3-gold cursor-pointer py-2">
-              Clientes
-            </a>
-            <a href="#contact" onClick={e => {
-              e.preventDefault();
-              scrollToSection('contact');
-            }} className="text-white hover:text-ds3-gold cursor-pointer py-2">
-              Contato
-            </a>
-            
-            <a href="#contact" onClick={e => {
-              e.preventDefault();
-              scrollToSection('contact');
-            }} className="bg-ds3-gold hover:bg-ds3-gold/90 text-ds3-dark px-6 py-3 rounded font-medium transition-all text-center mt-4" onClick={() => setIsMobileMenuOpen(false)}>
-              SOLICITAR ORÇAMENTO
-            </a>
-          </div>
-          
-          <div className="mt-auto pb-8">
-            <div className="text-white/70 space-y-4">
-              <a href="tel:+5511987654321" className="flex items-center text-sm hover:text-ds3-gold transition-colors py-2">
-                <Phone size={16} className="mr-2" />
-                (11) 98765-4321
-              </a>
-              <a href="mailto:vendas@safeguardepis.com.br" className="flex items-center text-sm hover:text-ds3-gold transition-colors py-2">
-                <Mail size={16} className="mr-2" />
-                vendas@safeguardepis.com.br
-              </a>
+      <div className={`fixed inset-0 z-40 lg:hidden transition-opacity duration-300 ${
+        isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+      }`}>
+        <div className="absolute inset-0 bg-black/50" onClick={toggleMobileMenu}></div>
+        <nav className={`absolute top-16 right-0 left-0 bg-white border-b shadow-xl transition-transform duration-300 ${
+          isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'
+        }`}>
+          <div className="container-custom py-4">
+            <div className="flex flex-col space-y-4">
+              {navigationItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="text-left py-3 px-4 text-foreground hover:text-primary hover:bg-secondary rounded-lg transition-all font-medium"
+                >
+                  {item.label}
+                </button>
+              ))}
+              
+              <button
+                onClick={() => scrollToSection('contato')}
+                className="btn-primary mt-4"
+              >
+                Fale Conosco
+              </button>
             </div>
           </div>
-        </div>
+        </nav>
       </div>
     </>
   );

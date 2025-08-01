@@ -63,16 +63,22 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				ds3: {
-					gold: '#f2cd69', // Gold color (30%)
-					dark: '#131619', // Dark color (10%)
-					white: '#ffffff', // White (60%)
+				// Brand colors from logo
+				brand: {
+					blue: 'hsl(var(--brand-blue))',
+					'blue-dark': 'hsl(var(--brand-blue-dark))',
+					gray: 'hsl(var(--brand-gray))',
+					'gray-dark': 'hsl(var(--brand-gray-dark))'
 				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			fontFamily: {
+				sans: ['Inter', 'system-ui', 'sans-serif'],
+				heading: ['Poppins', 'system-ui', 'sans-serif']
 			},
 			keyframes: {
 				'accordion-down': {
@@ -156,6 +162,16 @@ export default {
 						opacity: '0.85',
 						transform: 'scale(1.05)'
 					}
+				},
+				'gradient': {
+					'0%, 100%': {
+						'background-size': '200% 200%',
+						'background-position': 'left center'
+					},
+					'50%': {
+						'background-size': '200% 200%',
+						'background-position': 'right center'
+					}
 				}
 			},
 			animation: {
@@ -167,7 +183,12 @@ export default {
 				'slide-in': 'slide-in 0.5s ease-out',
 				'slide-in-right': 'slide-in-right 0.3s ease-out',
 				'float': 'float 3s ease-in-out infinite',
-				'pulse': 'pulse 2s ease-in-out infinite'
+				'pulse': 'pulse 2s ease-in-out infinite',
+				'gradient': 'gradient 8s ease-in-out infinite'
+			},
+			boxShadow: {
+				'brand': '0 4px 20px rgba(59, 130, 246, 0.15)',
+				'brand-lg': '0 8px 40px rgba(59, 130, 246, 0.2)',
 			}
 		}
 	},

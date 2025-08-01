@@ -1,130 +1,198 @@
 
 import React from 'react';
-import { Phone, Mail, MapPin } from 'lucide-react';
-import { useIsMobile } from '../hooks/use-mobile';
+import { Phone, Mail, MessageCircle, Clock, MapPin, Send } from 'lucide-react';
 
 const Contact = () => {
-  const isMobile = useIsMobile();
+  const contactMethods = [
+    {
+      icon: Phone,
+      title: 'Telefone',
+      description: 'Ligue diretamente para nós',
+      contact: '(67) 99936-9264',
+      link: 'tel:+5567999369264',
+      color: 'from-green-500 to-green-600'
+    },
+    {
+      icon: MessageCircle,
+      title: 'WhatsApp',
+      description: 'Atendimento rápido e prático',
+      contact: '(67) 99936-9264',
+      link: 'https://api.whatsapp.com/send?phone=5567999369264&text=Olá! Gostaria de saber mais sobre os serviços contábeis.',
+      color: 'from-emerald-500 to-emerald-600'
+    },
+    {
+      icon: Mail,
+      title: 'E-mail',
+      description: 'Envie sua mensagem',
+      contact: 'solucaoctb@gmail.com',
+      link: 'mailto:solucaoctb@gmail.com',
+      color: 'from-blue-500 to-blue-600'
+    }
+  ];
 
   return (
-    <section id="contact" className="section bg-transparent">
-      <div className="container-custom py-12 sm:py-16 lg:py-20 px-4">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-          <div className="inline-block bg-ds3-gold/20 text-ds3-dark font-medium px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm mb-4">
-            Contato
+    <section id="contato" className="section-padding bg-background">
+      <div className="container-custom">
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
+            Entre em Contato
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-900 mb-4 sm:mb-6">
-            Entre em contato conosco
+          
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 font-heading">
+            Vamos Conversar?
           </h2>
-          <p className="text-base sm:text-lg text-zinc-950">
-            Estamos prontos para atender suas necessidades de EPIs através dos nossos canais de atendimento.
+          
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Estamos prontos para atender você e sua empresa. Entre em contato através 
+            dos nossos canais e descubra como podemos ajudar seu negócio a crescer.
           </p>
         </div>
-        
-        {/* Contact Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
-          {/* WhatsApp Card */}
-          <div className="bg-white rounded-xl shadow-sm overflow-hidden animate-fade-in">
-            <div className="bg-emerald-500 p-4 sm:p-6 flex items-center justify-center">
-              <img src="/lovable-uploads/1fa16bc1-908d-4a63-9c7f-88a25f117f80.png" alt="WhatsApp" className="w-12 h-12 sm:w-16 sm:h-16" />
-            </div>
-            <div className="p-4 sm:p-6 text-center bg-zinc-400">
-              <h3 className="text-base sm:text-lg font-semibold text-neutral-900 mb-2">WhatsApp</h3>
-              <p className="text-sm sm:text-base text-neutral-600 mb-4">Atendimento rápido e prático</p>
-              <a href="https://wa.me/5511987654321" target="_blank" rel="noopener noreferrer" className="bg-ds3-dark hover:bg-ds3-dark/90 text-ds3-gold px-4 sm:px-6 py-2 rounded-md inline-flex items-center justify-center gap-2 transition-all font-medium text-sm sm:text-base w-full sm:w-auto">
-                <span>Enviar mensagem</span>
-              </a>
-            </div>
-          </div>
-          
-          {/* Phone Card */}
-          <div className="bg-white rounded-xl shadow-sm overflow-hidden animate-fade-in" style={{
-            animationDelay: '0.1s'
-          }}>
-            <div className="bg-ds3-gold p-4 sm:p-6 flex items-center justify-center">
-              <Phone className="w-12 h-12 sm:w-16 sm:h-16 text-ds3-dark" />
-            </div>
-            <div className="p-4 sm:p-6 text-center bg-zinc-400">
-              <h3 className="text-base sm:text-lg font-semibold text-neutral-900 mb-2">Telefone</h3>
-              <p className="text-sm sm:text-base text-neutral-600 mb-4">Fale diretamente conosco</p>
-              <a href="tel:+5511987654321" className="bg-ds3-dark hover:bg-ds3-dark/90 text-ds3-gold px-4 sm:px-6 py-2 rounded-md inline-flex items-center justify-center gap-2 transition-all font-medium text-sm sm:text-base w-full sm:w-auto">
-                <span>(11) 98765-4321</span>
-              </a>
-            </div>
-          </div>
-          
-          {/* Email Card */}
-          <div className="bg-white rounded-xl shadow-sm overflow-hidden animate-fade-in sm:col-span-2 lg:col-span-1" style={{
-            animationDelay: '0.2s'
-          }}>
-            <div className="bg-ds3-dark p-4 sm:p-6 flex items-center justify-center">
-              <Mail className="w-12 h-12 sm:w-16 sm:h-16 text-ds3-gold" />
-            </div>
-            <div className="p-4 sm:p-6 text-center bg-zinc-400">
-              <h3 className="text-base sm:text-lg font-semibold text-neutral-900 mb-2">E-mail</h3>
-              <p className="text-sm sm:text-base text-neutral-600 mb-4">Envie sua mensagem</p>
-              <a href="mailto:vendas@safeguardepis.com.br" className="bg-ds3-dark hover:bg-ds3-dark/90 text-ds3-gold px-4 sm:px-6 py-2 rounded-md inline-flex items-center justify-center gap-2 transition-all font-medium text-xs sm:text-sm w-full sm:w-auto break-all sm:break-normal">
-                <span className="truncate sm:whitespace-normal">vendas@safeguardepis.com.br</span>
-              </a>
-            </div>
-          </div>
+
+        {/* Contact Methods */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          {contactMethods.map((method, index) => (
+            <a
+              key={index}
+              href={method.link}
+              target={method.link.startsWith('http') ? '_blank' : '_self'}
+              rel={method.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+              className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-brand border border-border/50 hover:border-primary/30 transition-all duration-300 card-hover animate-fade-in-up block"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <div className={`bg-gradient-to-r ${method.color} rounded-xl p-3 w-fit mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                <method.icon size={24} className="text-white" />
+              </div>
+              
+              <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors font-heading">
+                {method.title}
+              </h3>
+              
+              <p className="text-muted-foreground text-sm mb-3">
+                {method.description}
+              </p>
+              
+              <p className="text-primary font-medium group-hover:text-primary/80 transition-colors">
+                {method.contact}
+              </p>
+            </a>
+          ))}
         </div>
-        
-        {/* Address and Hours Card */}
-        <div className="mt-8 sm:mt-12 rounded-xl shadow-sm p-4 sm:p-6 lg:p-8 max-w-6xl mx-auto bg-zinc-400">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-            {/* Address */}
-            <div>
-              <div className="flex items-start mb-4 sm:mb-6">
-                <div className="bg-neutral-100 p-2 sm:p-3 rounded-full mr-3 sm:mr-4 flex-shrink-0">
-                  <MapPin className="text-ds3-dark" size={20} />
-                </div>
-                <div>
-                  <h4 className="text-base sm:text-lg font-semibold text-neutral-900 mb-2">Endereço</h4>
-                  <p className="text-sm sm:text-base text-zinc-950 leading-relaxed">Rua da Segurança, 123 - Centro, São Paulo - SP, 01000-000</p>
-                  <a href="https://www.google.com/maps/place/R.+da+Seguran%C3%A7a,+123+-+Centro,+S%C3%A3o+Paulo+-+SP,+01000-000,+Brasil/" target="_blank" rel="noopener noreferrer" className="text-ds3-dark hover:text-ds3-gold transition-colors duration-300 mt-2 inline-block text-sm sm:text-base">
-                    Ver no mapa
-                  </a>
-                </div>
-              </div>
-              
-              {/* Google Maps Embed */}
-              <div className="w-full h-48 sm:h-64 mt-4 rounded-lg overflow-hidden">
-                <iframe 
-                  src="https://www.google.com/maps?q=Centro+S%C3%A3o+Paulo+SP&output=embed" 
-                  width="100%" 
-                  height="100%" 
-                  style={{
-                    border: 0
-                  }} 
-                  allowFullScreen 
-                  loading="lazy" 
-                  referrerPolicy="no-referrer-when-downgrade" 
-                  title="Localização da Safeguard EPIs"
-                ></iframe>
-              </div>
+
+        {/* Contact Form */}
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-gradient-secondary rounded-3xl p-8 lg:p-12">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-4 font-heading">
+                Solicite uma Consultoria Gratuita
+              </h3>
+              <p className="text-muted-foreground">
+                Preencha o formulário abaixo e nossa equipe entrará em contato em breve
+              </p>
             </div>
-            
-            {/* Working Hours */}
-            <div className="mt-6 lg:mt-0">
-              <h4 className="text-base sm:text-lg font-semibold text-neutral-900 mb-4">Horário de Atendimento</h4>
-              
-              <div className="space-y-3 sm:space-y-2">
-                <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
-                  <span className="text-sm sm:text-base text-zinc-950">Segunda - Sexta:</span>
-                  <span className="font-medium text-neutral-900 text-sm sm:text-base">08:00 - 18:00</span>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
-                  <span className="text-sm sm:text-base text-zinc-950">Sábado:</span>
-                  <span className="font-medium text-neutral-900 text-sm sm:text-base">08:00 - 12:00</span>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
-                  <span className="text-sm sm:text-base text-zinc-950">Domingo:</span>
-                  <span className="font-medium text-neutral-900 text-sm sm:text-base">Fechado</span>
-                </div>
+
+            <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                  Nome Completo *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  className="w-full px-4 py-3 rounded-xl border border-border bg-white focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+                  placeholder="Seu nome completo"
+                />
               </div>
-            </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                  E-mail *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  className="w-full px-4 py-3 rounded-xl border border-border bg-white focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+                  placeholder="seu@email.com"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
+                  Telefone *
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  className="w-full px-4 py-3 rounded-xl border border-border bg-white focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+                  placeholder="(67) 99999-9999"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="company" className="block text-sm font-medium text-foreground mb-2">
+                  Empresa
+                </label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  className="w-full px-4 py-3 rounded-xl border border-border bg-white focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+                  placeholder="Nome da empresa"
+                />
+              </div>
+
+              <div className="md:col-span-2">
+                <label htmlFor="service" className="block text-sm font-medium text-foreground mb-2">
+                  Serviço de Interesse
+                </label>
+                <select
+                  id="service"
+                  name="service"
+                  className="w-full px-4 py-3 rounded-xl border border-border bg-white focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+                >
+                  <option value="">Selecione um serviço</option>
+                  <option value="contabilidade-completa">Contabilidade Completa</option>
+                  <option value="planejamento-tributario">Planejamento Tributário</option>
+                  <option value="abertura-empresa">Abertura de Empresa</option>
+                  <option value="certificado-digital">Certificado Digital</option>
+                  <option value="erp">Sistema de Gestão (ERP)</option>
+                  <option value="consultoria">Consultoria Especializada</option>
+                </select>
+              </div>
+
+              <div className="md:col-span-2">
+                <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                  Mensagem
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  className="w-full px-4 py-3 rounded-xl border border-border bg-white focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors resize-none"
+                  placeholder="Descreva suas necessidades ou dúvidas..."
+                />
+              </div>
+
+              <div className="md:col-span-2 text-center">
+                <button
+                  type="submit"
+                  className="btn-primary group inline-flex items-center"
+                >
+                  <Send size={20} className="mr-2 group-hover:translate-x-1 transition-transform" />
+                  Solicitar Consultoria Gratuita
+                </button>
+                
+                <p className="text-xs text-muted-foreground mt-4">
+                  Ao enviar este formulário, você concorda em ser contatado pela nossa equipe.
+                </p>
+              </div>
+            </form>
           </div>
         </div>
       </div>

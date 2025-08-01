@@ -1,77 +1,157 @@
 
 import React from 'react';
-import { Shield, HardHat, Eye, ArrowRight } from 'lucide-react';
-
-const services = [
-  {
-    id: 1,
-    title: 'Proteção da Cabeça',
-    description: 'Capacetes de segurança, toucas e protetores auriculares para proteção completa da cabeça em ambientes industriais.',
-    icon: HardHat,
-    delay: '0s'
-  },
-  {
-    id: 2,
-    title: 'Proteção Visual e Respiratória',
-    description: 'Óculos de proteção, máscaras, respiradores e filtros para ambientes com riscos químicos e particulados.',
-    icon: Eye,
-    delay: '0.1s'
-  },
-  {
-    id: 3,
-    title: 'Proteção Corporal Completa',
-    description: 'Luvas, calçados de segurança, cintos de segurança e vestimentas para proteção integral do trabalhador.',
-    icon: Shield,
-    delay: '0.2s'
-  }
-];
+import { 
+  Calculator, 
+  Shield, 
+  Users, 
+  TrendingUp, 
+  FileText, 
+  Settings, 
+  CreditCard,
+  ArrowRight 
+} from 'lucide-react';
 
 const Services = () => {
+  const services = [
+    {
+      icon: Settings,
+      title: 'Sistemas de Gestão (ERP)',
+      description: 'Sistemas completos para gestão de pequenas empresas, controle de estoque, vendas e finanças.',
+      color: 'from-blue-500 to-blue-600'
+    },
+    {
+      icon: CreditCard,
+      title: 'Certificado Digital',
+      description: 'Emissão de certificados digitais para empresas e profissionais autônomos.',
+      color: 'from-green-500 to-green-600'
+    },
+    {
+      icon: Calculator,
+      title: 'Contabilidade Financeira',
+      description: 'Escrituração contábil, elaboração de balanços e DRE com linguagem clara e acessível.',
+      color: 'from-purple-500 to-purple-600'
+    },
+    {
+      icon: Shield,
+      title: 'Contabilidade Fiscal',
+      description: 'Apuração de impostos, escrituração fiscal e cumprimento das obrigações tributárias.',
+      color: 'from-red-500 to-red-600'
+    },
+    {
+      icon: Users,
+      title: 'Contabilidade Trabalhista',
+      description: 'Folha de pagamento, férias, rescisões e todas as obrigações relacionadas a colaboradores.',
+      color: 'from-indigo-500 to-indigo-600'
+    },
+    {
+      icon: TrendingUp,
+      title: 'Planejamento Tributário',
+      description: 'Estratégias para reduzir a carga tributária de forma legal e segura para sua empresa.',
+      color: 'from-orange-500 to-orange-600'
+    },
+    {
+      icon: FileText,
+      title: 'Abertura/Encerramento de Empresas',
+      description: 'Suporte completo para legalização, alterações contratuais ou encerramento de atividades.',
+      color: 'from-teal-500 to-teal-600'
+    }
+  ];
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
-    <section id="services" className="section bg-transparent">
-      <div className="container-custom py-12 sm:py-16 lg:py-20">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 px-4">
-          <div className="inline-block bg-ds3-gold/10 text-ds3-dark font-medium px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm mb-4 text-shadow-sm">
-            Nossos Produtos
+    <section id="servicos" className="section-padding bg-background">
+      <div className="container-custom">
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
+            Nossos Serviços
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 text-shadow-md">
-            EPIs completos para sua segurança
+          
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 font-heading">
+            Soluções Contábeis Completas
           </h2>
-          <p className="text-base sm:text-lg text-shadow text-gray-950">
-            Oferecemos equipamentos de proteção individual certificados para atender às necessidades específicas 
-            do seu ambiente de trabalho, com qualidade e segurança garantidas.
+          
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Oferecemos um portfólio completo de serviços contábeis para atender todas 
+            as necessidades da sua empresa, desde a abertura até o crescimento sustentável.
           </p>
         </div>
-        
+
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-4">
-          {services.map(service => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          {services.map((service, index) => (
             <div 
-              key={service.id} 
-              style={{
-                animationDelay: service.delay
-              }} 
-              className="backdrop-blur-sm rounded-lg p-6 sm:p-8 border border-gray-100 shadow-sm hover:shadow-md hover:border-ds3-gold/30 transition-all duration-300 transform hover:scale-[1.02] animate-fade-in bg-zinc-300"
+              key={index}
+              className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-brand border border-border/50 hover:border-primary/30 transition-all duration-300 card-hover animate-fade-in-up"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="bg-ds3-gold/10 p-3 sm:p-4 rounded-lg inline-block mb-4 sm:mb-5">
-                <service.icon className="text-ds3-dark" size={24} />
+              {/* Icon */}
+              <div className={`bg-gradient-to-r ${service.color} rounded-xl p-3 w-fit mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                <service.icon size={24} className="text-white" />
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-3 text-gray-900 text-shadow-sm">{service.title}</h3>
-              <p className="text-sm sm:text-base text-gray-600 mb-4 text-shadow-sm leading-relaxed">{service.description}</p>
-              <a href="#contact" className="inline-flex items-center text-ds3-dark hover:text-ds3-gold font-medium transition-colors duration-300 text-shadow-sm text-sm sm:text-base">
-                Solicitar orçamento <ArrowRight size={16} className="ml-1" />
-              </a>
+              
+              {/* Content */}
+              <h3 className="text-lg font-semibold text-foreground mb-3 group-hover:text-primary transition-colors font-heading">
+                {service.title}
+              </h3>
+              
+              <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                {service.description}
+              </p>
+              
+              {/* CTA */}
+              <button 
+                onClick={() => scrollToSection('contato')}
+                className="inline-flex items-center text-primary hover:text-primary/80 font-medium text-sm group-hover:translate-x-1 transition-transform"
+              >
+                Solicitar orçamento
+                <ArrowRight size={16} className="ml-1" />
+              </button>
             </div>
           ))}
         </div>
-        
-        {/* CTA */}
-        <div className="mt-12 sm:mt-16 text-center px-4">
-          <a href="#contact" className="bg-ds3-dark hover:bg-ds3-dark/90 text-ds3-gold px-6 py-3 rounded-md transition-all flex items-center justify-center gap-2 font-medium inline-flex text-shadow-sm text-sm sm:text-base">
-            <span>Fale com um especialista</span>
-            <ArrowRight size={18} />
-          </a>
+
+        {/* Call to Action */}
+        <div className="bg-gradient-secondary rounded-3xl p-8 lg:p-12 text-center">
+          <div className="max-w-3xl mx-auto">
+            <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-4 font-heading">
+              Precisa de uma solução personalizada?
+            </h3>
+            
+            <p className="text-muted-foreground mb-8 text-lg">
+              Nossa equipe está pronta para criar uma proposta sob medida 
+              para as necessidades específicas da sua empresa.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                onClick={() => scrollToSection('contato')}
+                className="btn-primary group"
+              >
+                Falar com Especialista
+                <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </button>
+              
+              <a
+                href="https://api.whatsapp.com/send?phone=5567999369264&text=Olá! Gostaria de saber mais sobre os serviços contábeis."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline group"
+              >
+                WhatsApp
+                <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
